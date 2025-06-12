@@ -19,23 +19,9 @@ import (
 	"os"
 )
 
-func help() {
-	message := `Usage:
-
-	threshold <command>:<subcommand> [arguments]
-	threshold [flags]
-
-Available commands:
-
-	daemon
-	device
-
-Available flags:
-
-	-v, --version # View version message
-	-h, --help    # View help message
-
-Use "threshold <command>:help" to see more information.`
+func version() {
+	message := `Threshold v1.1.0
+Copyright (C) 2025 Enindu Alahapperuma`
 
 	fmt.Fprintf(os.Stdout, "%s\n", message)
 }

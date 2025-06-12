@@ -7,8 +7,8 @@ Threshold is a simple application based on [systemd](https://github.com/systemd/
 Since this application requires root privileges, you’ll need to install Threshold as the root user and configure the environment accordingly. Assuming you are already logged in as root, add the following lines to the `/root/.bash_profile` file:
 
 ```bash
-export PATH="$PATH:$HOME/.go/bin"
-export GOPATH="$HOME/.go"
+export PATH="$PATH:$HOME/go/bin"
+export GOPATH="$HOME/go"
 ```
 
 After updating the file, apply the changes by running:
@@ -25,34 +25,28 @@ go install github.com/enindu/threshold@latest
 
 ## Usage
 
-Here is how to use Threshold:
+You can run Threshold using the following syntax:
 
 ```
 threshold <command>:<subcommand> [arguments]
 ```
 
-For example, to start the daemon, run:
+or with flags:
 
 ```
-threshold daemon:start eth0 1024 1
+threshold [flags]
 ```
 
-To view a list of available commands:
+To display the version:
 
 ```
-threshold help
+threshold -v # or threshold --version
 ```
 
-To see the subcommands for a specific command:
+To display the help message:
 
 ```
-threshold <command>:help
-```
-
-For instance, to view help for the `daemon` command:
-
-```
-threshold daemon:help
+threshold -h # or threshold --help
 ```
 
 ## License

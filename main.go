@@ -23,11 +23,17 @@
 // Usage:
 //
 //	threshold <command>:<subcommand> [arguments]
+//	threshold [flags]
 //
 // Available commands:
 //
 //	daemon
 //	device
+//
+// Available flags:
+//
+//	-v, --version # View version message
+//	-h, --help    # View help message
 //
 // Use "threshold <command>:help" to see more information.
 package main
@@ -53,7 +59,7 @@ func main() {
 	}
 
 	if account.Uid != "0" {
-		fmt.Fprintf(os.Stderr, "%v\n", errNonRoot)
+		fmt.Fprintf(os.Stderr, "%s\n", errNonRoot.Error())
 		return
 	}
 
@@ -82,21 +88,30 @@ func main() {
 	inputs := os.Args
 
 	if len(inputs) < 2 {
-		help()
+		fmt.Fprintf(os.Stderr, "%v\n", errNoInstruction.Error())
 		return
 	}
 
 	instruction := inputs[1]
 
-	execute, exists := dispatchers[instruction]
-
-	if !exists {
+	switch instruction {
+	case "-v", "--version":
+		version()
+		return
+	case "-h", "--help":
 		help()
 		return
+	default:
+		execute, exists := dispatchers[instruction]
+
+		if !exists {
+			fmt.Fprintf(os.Stderr, "%s\n", errInvalidCommand.Error())
+			return
+		}
+
+		ctx := context.Background()
+		arguments := inputs[2:]
+
+		execute(logger, ctx, arguments)
 	}
-
-	ctx := context.Background()
-	arguments := inputs[2:]
-
-	execute(logger, ctx, arguments)
 }
