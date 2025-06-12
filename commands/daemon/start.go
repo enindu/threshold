@@ -104,7 +104,7 @@ Description=Automatically monitor network usage and disable the network interfac
 
 [Service]
 Type=oneshot
-ExecStart=` + executable + ` device:down ` + device.Attrs().Name + ` ` + fmt.Sprintf("%.6f", threshold)
+ExecStart=` + executable + ` device:down ` + device.Attrs().Name + ` ` + fmt.Sprintf("%.3f", threshold)
 
 	serviceFile, err := os.OpenFile(serviceFilePath, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
 
