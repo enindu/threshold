@@ -29,24 +29,19 @@ You can run Threshold using the following syntax:
 
 ```
 threshold <command>:<subcommand> [arguments]
-```
-
-or with flags:
-
-```
 threshold [flags]
 ```
 
 To display the version:
 
 ```
-threshold -v # or threshold --version
+threshold -v # or "threshold --version"
 ```
 
 To display the help message:
 
 ```
-threshold -h # or threshold --help
+threshold -h # or "threshold --help"
 ```
 
 ## License
