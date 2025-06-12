@@ -16,6 +16,20 @@
 // You should have received a copy of the GNU General Public License along with
 // this program.  If not, see <https://www.gnu.org/licenses/>.
 
+// Threshold is a simple application based on systemd that automatically brings
+// down a network interface after a specified amount of data has passed through
+// it.
+//
+// Usage:
+//
+//	threshold <command>:<subcommand> [arguments]
+//
+// Available commands:
+//
+//	daemon
+//	device
+//
+// Use "threshold <command>:help" to see more information.
 package main
 
 import (
