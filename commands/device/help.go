@@ -30,6 +30,7 @@ Available subcommands and arguments:
 
 	up [device]                     # Enable device
 	down [device] [threshold (mib)] # Disable device
+	usage [device]                  # View usage
 	help                            # View help message
 	
 Example:

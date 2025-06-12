@@ -61,6 +61,7 @@ func main() {
 		"daemon:help":   daemon.Help,
 		"device:up":     device.Up,
 		"device:down":   device.Down,
+		"device:usage":  device.Usage,
 		"device:help":   device.Help,
 	}
 
