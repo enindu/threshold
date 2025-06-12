@@ -32,7 +32,7 @@ threshold <command>:<subcommand> [arguments]
 threshold [flags]
 ```
 
-To display the version:
+To display the version message:
 
 ```
 threshold -v # or "threshold --version"
