@@ -19,6 +19,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"os/exec"
 	"strconv"
 	"strings"
 
@@ -89,12 +90,21 @@ func Start(l *log.Logger, c context.Context, a []string) {
 
 	defer connection.Close()
 
+	executable, err := exec.LookPath("threshold")
+
+	if err != nil {
+		l.Printf("[ERROR] %s\n", strings.ToLower(err.Error()))
+		fmt.Fprintf(os.Stderr, "%s\n", strings.ToLower(err.Error()))
+
+		return
+	}
+
 	serviceContent := `[Unit]
 Description=Automatically monitor network usage and disable the network interface when a specified threshold is exceeded
 
 [Service]
 Type=oneshot
-ExecStart=threshold device:down ` + device.Attrs().Name + ` ` + fmt.Sprintf("%.6f", threshold)
+ExecStart=` + executable + ` device:down ` + device.Attrs().Name + ` ` + fmt.Sprintf("%.6f", threshold)
 
 	serviceFile, err := os.OpenFile(serviceFilePath, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
 
