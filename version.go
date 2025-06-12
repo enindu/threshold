@@ -21,7 +21,8 @@ import (
 
 func version() {
 	message := `Threshold v1.1.0
-Copyright (C) 2025 Enindu Alahapperuma`
+Copyright (C) 2025 Enindu Alahapperuma
+License under GNU GPL 3.0`
 
 	fmt.Fprintf(os.Stdout, "%s\n", message)
 }

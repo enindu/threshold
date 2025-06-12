@@ -29,7 +29,7 @@ func Help(l *log.Logger, c context.Context, a []string) {
 Available subcommands and arguments:
 
 	up [device]                     # Enable device
-	down [device] [threshold (mib)] # Disable device
+	down [device] [threshold (MiB)] # Disable device
 	usage [device]                  # View usage
 	help                            # View help message
 	

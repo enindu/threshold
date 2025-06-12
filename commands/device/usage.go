@@ -92,9 +92,9 @@ func Usage(l *log.Logger, c context.Context, a []string) {
 
 	message := device.Attrs().Name + `:
 	
-	Download: ` + fmt.Sprintf("%.3f", download/(1024*1024)) + ` mib
-	Upload:   ` + fmt.Sprintf("%.3f", upload/(1024*1024)) + ` mib
-	Total:    ` + fmt.Sprintf("%.3f", total) + ` mib`
+	Download: ` + fmt.Sprintf("%.3f", download/(1024*1024)) + ` MiB
+	Upload:   ` + fmt.Sprintf("%.3f", upload/(1024*1024)) + ` MiB
+	Total:    ` + fmt.Sprintf("%.3f", total) + ` MiB`
 
 	fmt.Fprintf(os.Stdout, "%s\n", message)
 }

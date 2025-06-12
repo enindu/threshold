@@ -28,7 +28,7 @@ func Help(l *log.Logger, c context.Context, a []string) {
 	
 Available subcommands and arguments:
 
-	start [device] [threshold (mib)] [interval (min)] # Start service
+	start [device] [threshold (MiB)] [interval (Min)] # Start service
 	stop [device]                                     # Stop service
 	status [device]                                   # View service status
 	help                                              # View help message

@@ -65,12 +65,12 @@ func Status(l *log.Logger, c context.Context, a []string) {
 		return
 	}
 
-	serviceFileState := fmt.Sprintf("exists in %s", serviceFilePath)
+	serviceFileState := fmt.Sprintf("Exists in %s", serviceFilePath)
 
 	_, err = os.Stat(serviceFilePath)
 
 	if err != nil {
-		serviceFileState = "not exists"
+		serviceFileState = "Not exists"
 	}
 
 	timerProperties, err := connection.GetUnitPropertiesContext(c, timerFileName)
@@ -82,24 +82,24 @@ func Status(l *log.Logger, c context.Context, a []string) {
 		return
 	}
 
-	timerFileState := fmt.Sprintf("exists in %s", timerFilePath)
+	timerFileState := fmt.Sprintf("Exists in %s", timerFilePath)
 
 	_, err = os.Stat(timerFilePath)
 
 	if err != nil {
-		timerFileState = "not exists"
+		timerFileState = "Not exists"
 	}
 
 	message := serviceFileName + `:
 
-	Active state:    ` + strings.ToLower(serviceProperties["ActiveState"].(string)) + `
-	Unit file state: ` + strings.ToLower(serviceProperties["UnitFileState"].(string)) + `
+	Active state:    ` + serviceProperties["ActiveState"].(string) + `
+	Unit file state: ` + serviceProperties["UnitFileState"].(string) + `
 	File state:      ` + serviceFileState + `
 	
 ` + timerFileName + `:
 
-	Active state:    ` + strings.ToLower(timerProperties["ActiveState"].(string)) + `
-	Unit file state: ` + strings.ToLower(timerProperties["UnitFileState"].(string)) + `
+	Active state:    ` + timerProperties["ActiveState"].(string) + `
+	Unit file state: ` + timerProperties["UnitFileState"].(string) + `
 	File state:      ` + timerFileState + `
 	
 Use "systemctl status ` + serviceFileName + `" and "systemctl status ` + timerFileName + `" for more information.`

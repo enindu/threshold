@@ -18,6 +18,6 @@ import "errors"
 
 var (
 	errNonRoot        error = errors.New("the user must be root")
-	errNoInstruction  error = errors.New("the instruction is not found, use \"threshold --help\" to see help message")
-	errInvalidCommand error = errors.New("the command is invalid, use \"threshold --help\" to see help message")
+	errNoInstruction  error = errors.New("the instruction is not found, use \"threshold -h\" or \"threshold --help\" to see help message")
+	errInvalidCommand error = errors.New("the command is invalid, use \"threshold -h\" or \"threshold --help\" to see help message")
 )
