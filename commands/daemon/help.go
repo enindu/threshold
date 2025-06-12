@@ -30,6 +30,7 @@ Available subcommands and arguments:
 
 	start [device] [threshold (mib)] [interval (min)] # Start service
 	stop [device]                                     # Stop service
+	status [device]                                   # View service status
 	help                                              # View help message
 	
 Example:

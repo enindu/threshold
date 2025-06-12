@@ -29,7 +29,7 @@ Available commands:
 	daemon
 	device
 
-Use "threshold <command>:help" to see more information about commands.`
+Use "threshold <command>:help" to see more information.`
 
 	fmt.Fprintf(os.Stdout, "%s\n", message)
 }

@@ -55,12 +55,13 @@ func main() {
 	logger := log.New(file, log.Prefix(), log.Flags())
 
 	dispatchers := map[string]func(*log.Logger, context.Context, []string){
-		"daemon:start": daemon.Start,
-		"daemon:stop":  daemon.Stop,
-		"daemon:help":  daemon.Help,
-		"device:up":    device.Up,
-		"device:down":  device.Down,
-		"device:help":  device.Help,
+		"daemon:start":  daemon.Start,
+		"daemon:stop":   daemon.Stop,
+		"daemon:status": daemon.Status,
+		"daemon:help":   daemon.Help,
+		"device:up":     device.Up,
+		"device:down":   device.Down,
+		"device:help":   device.Help,
 	}
 
 	inputs := os.Args
