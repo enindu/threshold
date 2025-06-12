@@ -34,8 +34,6 @@
 //
 //	-v, --version # View version message
 //	-h, --help    # View help message
-//
-// Use "threshold <command>:help" to see more information.
 package main
 
 import (

@@ -33,9 +33,7 @@ Available commands:
 Available flags:
 
 	-v, --version # View version message
-	-h, --help    # View help message
-
-Use "threshold <command>:help" to see more information.`
+	-h, --help    # View help message`
 
 	fmt.Fprintf(os.Stdout, "%s\n", message)
 }

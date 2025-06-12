@@ -20,7 +20,7 @@ import (
 )
 
 func version() {
-	message := `Threshold v1.1.0
+	message := `Threshold v1.1.1
 Copyright (C) 2025 Enindu Alahapperuma
 License under GNU GPL 3.0`
 
