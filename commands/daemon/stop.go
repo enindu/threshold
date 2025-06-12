@@ -83,6 +83,15 @@ func Stop(l *log.Logger, c context.Context, a []string) {
 		return
 	}
 
+	err = netlink.LinkSetUp(device)
+
+	if err != nil {
+		l.Printf("[ERROR] %s\n", strings.ToLower(err.Error()))
+		fmt.Fprintf(os.Stderr, "%s\n", strings.ToLower(err.Error()))
+
+		return
+	}
+
 	l.Printf("[INFO] the daemon is stopped\n")
 	fmt.Fprintf(os.Stdout, "the daemon is stopped\n")
 }

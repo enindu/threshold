@@ -40,8 +40,8 @@ func Up(l *log.Logger, c context.Context, a []string) {
 	}
 
 	if device.Attrs().OperState == netlink.OperUp {
-		l.Printf("[ERROR] %v\n", errDeviceUp)
-		fmt.Fprintf(os.Stderr, "%v\n", errDeviceUp)
+		l.Printf("[INFO] the device is already up\n")
+		fmt.Fprintf(os.Stdout, "the device is already up\n")
 
 		return
 	}

@@ -88,7 +88,7 @@ func main() {
 	inputs := os.Args
 
 	if len(inputs) < 2 {
-		fmt.Fprintf(os.Stderr, "%v\n", errNoInstruction.Error())
+		fmt.Fprintf(os.Stderr, "%s\n", errNoInstruction.Error())
 		return
 	}
 

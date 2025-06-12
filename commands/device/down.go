@@ -42,8 +42,8 @@ func Down(l *log.Logger, c context.Context, a []string) {
 	}
 
 	if device.Attrs().OperState == netlink.OperDown {
-		l.Printf("[ERROR] %v\n", errDeviceDown)
-		fmt.Fprintf(os.Stderr, "%v\n", errDeviceDown)
+		l.Printf("[INFO] the device is already down\n")
+		fmt.Fprintf(os.Stderr, "the device is already down\n")
 
 		return
 	}

@@ -52,8 +52,8 @@ func Start(l *log.Logger, c context.Context, a []string) {
 	}
 
 	if threshold < 1 {
-		l.Printf("[ERROR] %v\n", errInvalidThreshold)
-		fmt.Fprintf(os.Stderr, "%v\n", errInvalidThreshold)
+		l.Printf("[ERROR] %s\n", errInvalidThreshold.Error())
+		fmt.Fprintf(os.Stderr, "%s\n", errInvalidThreshold.Error())
 
 		return
 	}
@@ -68,8 +68,8 @@ func Start(l *log.Logger, c context.Context, a []string) {
 	}
 
 	if interval < 1 {
-		l.Printf("[ERROR] %v\n", errInvalidInterval)
-		fmt.Fprintf(os.Stderr, "%v\n", errInvalidInterval)
+		l.Printf("[ERROR] %s\n", errInvalidInterval.Error())
+		fmt.Fprintf(os.Stderr, "%s\n", errInvalidInterval.Error())
 
 		return
 	}
