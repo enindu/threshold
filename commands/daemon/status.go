@@ -92,14 +92,14 @@ func Status(l *log.Logger, c context.Context, a []string) {
 
 	message := serviceFileName + `:
 
-	Active state:    ` + serviceProperties["ActiveState"].(string) + `
-	Unit file state: ` + serviceProperties["UnitFileState"].(string) + `
+	Active state:    ` + strings.ToLower(serviceProperties["ActiveState"].(string)) + `
+	Unit file state: ` + strings.ToLower(serviceProperties["UnitFileState"].(string)) + `
 	File state:      ` + serviceFileState + `
 	
 ` + timerFileName + `:
 
-	Active state:    ` + timerProperties["ActiveState"].(string) + `
-	Unit file state: ` + timerProperties["UnitFileState"].(string) + `
+	Active state:    ` + strings.ToLower(timerProperties["ActiveState"].(string)) + `
+	Unit file state: ` + strings.ToLower(timerProperties["UnitFileState"].(string)) + `
 	File state:      ` + timerFileState + `
 	
 Use "systemctl status ` + serviceFileName + `" and "systemctl status ` + timerFileName + `" for more information.`
