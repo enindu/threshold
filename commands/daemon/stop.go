@@ -56,20 +56,11 @@ func Stop(l *log.Logger, c context.Context, a []string) {
 
 	defer connection.Close()
 
-	status, err := connection.GetUnitPropertyContext(c, timerFileName, "ActiveState")
+	_, err = connection.StopUnitContext(c, timerFileName, "replace", nil)
 
 	if err != nil {
 		l.Printf("[ERROR] %s\n", strings.ToLower(err.Error()))
 		fmt.Fprintf(os.Stderr, "%s\n", strings.ToLower(err.Error()))
-
-		return
-	}
-
-	fmt.Println(status.Value.String())
-
-	if status.Value.String() == "\"inactive\"" {
-		l.Printf("[ERROR] %v\n", errInactiveService)
-		fmt.Fprintf(os.Stderr, "%v\n", errInactiveService)
 
 		return
 	}

@@ -1,6 +1,5 @@
 # Threshold
 
-- Fix daemon:stop instruction issues.
-- Separate validations of subcommands.
-- Seperate business logics of subcommands.
+- Add daemon:status instruction.
+- Add daemon:clear instruction.
 - Add device:usage instruction.

@@ -89,22 +89,6 @@ func Start(l *log.Logger, c context.Context, a []string) {
 
 	defer connection.Close()
 
-	status, err := connection.GetUnitPropertyContext(c, timerFileName, "ActiveState")
-
-	if err != nil {
-		l.Printf("[ERROR] %s\n", strings.ToLower(err.Error()))
-		fmt.Fprintf(os.Stderr, "%s\n", strings.ToLower(err.Error()))
-
-		return
-	}
-
-	if status.Value.String() == "\"active\"" {
-		l.Printf("[ERROR] %v\n", errActiveService)
-		fmt.Fprintf(os.Stderr, "%v\n", errActiveService)
-
-		return
-	}
-
 	serviceContent := `[Unit]
 Description=Automatically monitor network usage and disable the network interface when a specified threshold is exceeded
 

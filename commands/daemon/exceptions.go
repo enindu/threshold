@@ -19,6 +19,4 @@ import "errors"
 var (
 	errInvalidInterval  error = errors.New("the minimum value for interval is 1")
 	errInvalidThreshold error = errors.New("the minimum value for threshold is 1")
-	errActiveService    error = errors.New("the service is already activated")
-	errInactiveService  error = errors.New("the service is already deactivated")
 )
